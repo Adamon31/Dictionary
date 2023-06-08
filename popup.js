@@ -1,7 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
   var searchBox = document.getElementById('search-box');
   var searchButton = document.getElementById('search-button');
+  var searchTabButton = document.getElementById('searchTabButton');
+  var settingsTabButton = document.getElementById('settingsTabButton');
+  var searchTabContent = document.getElementById('searchTab');
+  var settingsTabContent = document.getElementById('settingsTab');
 
+  // Add event listeners for tab buttons
+  searchTabButton.addEventListener('click', function() {
+    showTab('searchTab');
+  });
+
+  settingsTabButton.addEventListener('click', function() {
+    showTab('settingsTab');
+  });
+
+  // Function to switch between tabs
+  function showTab(tabId) {
+    // Hide all tab contents
+    searchTabContent.classList.remove('active');
+    settingsTabContent.classList.remove('active');
+
+    // Show the selected tab content
+    if (tabId === 'searchTab') {
+      searchTabContent.classList.add('active');
+    } else if (tabId === 'settingsTab') {
+      settingsTabContent.classList.add('active');
+    }
+  }
+
+  // Initialize the search tab as active
+  showTab('searchTab');
   // Add event listeners
   searchBox.addEventListener('input', handleInput);
   searchButton.addEventListener('click', handleSearch);
