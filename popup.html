@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dictionary</title>
+  <script src="popup.js"></script>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .search-input {
+      flex: 1;
+      height: 24px;
+      padding: 4px;
+      font-size: 14px;
+    }
+
+    .search-button {
+      margin-left: 10px;
+      padding: 4px 10px;
+      font-size: 14px;
+    }
+
+    .results-container {
+      margin-top: 10px;
+    }
+
+    .result-item {
+      margin-bottom: 10px;
+    }
+
+    .word {
+      font-weight: bold;
+    }
+
+    .definition {
+      margin-top: 4px;
+    }
+
+    .no-results {
+      font-style: italic;
+      color: #888;
+    }
+
+    .report-link {
+      margin-left: 5px;
+      font-size: 12px;
+      color: #888;
+      text-decoration: none;
+    }
+
+    .definition-popup {
+      position: fixed;
+      z-index: 9999;
+      max-width: 300px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .source-label {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h3>Search</h3>
+  <div class="search-box">
+    <input type="text" id="search-box" class="search-input" placeholder="Enter a word" />
+    <button id="search-button" class="search-button">Search</button>
+  </div>
+  <div id="autocomplete-container"></div>
+  <h3>Options</h3>
+  <input type="checkbox" id="highlightingCheckbox" />
+  <label for="highlightingCheckbox">Enable Highlighting</label>
+
+  <div class="results-container">
+    <!-- <div id="noResultsMessage" class="no-results">No results found.</div> -->
+    <div id="results-container"></div>
+  </div>
+</body>
+</html>
